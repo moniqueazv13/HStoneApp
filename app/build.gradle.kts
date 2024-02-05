@@ -62,16 +62,19 @@ dependencies {
 
     implementation("io.coil-kt:coil-compose:2.5.0")
 
-//    implementation("io.insert-koin:koin-android:3.5.3")
-    implementation("io.insert-koin:koin-androidx-compose:3.2.2")
+    implementation("io.insert-koin:koin-androidx-compose:3.5.3")
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-
     implementation("com.google.code.gson:gson:2.10.1")
-
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
 
+    testImplementation ("io.mockk:mockk:1.13.9")
+    testImplementation ("io.mockk:mockk-android:1.13.9")
+    testImplementation ("com.google.truth:truth:1.1.3")
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    testImplementation ("androidx.arch.core:core-testing:2.2.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
