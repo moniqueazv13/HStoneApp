@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HStoneApp</string>
+    <string name="title_home">Hearthstone</string>
+    <string name="placeholder_text">Nothing to show</string>
+    <string name="accessibility_fab">Floating action button</string>
+    <string name="accessibility_item_image">"Item list image"</string>
+</resources>
