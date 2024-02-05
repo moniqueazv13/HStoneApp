@@ -15,5 +15,6 @@ Entre outras.
 ### Testes Unitários ✔️
 Para os testes Unitários, foi utilizado JUnit4 e MockK sendo realizado testes da ViewModel, Use Case e Reposistory.
 ### Melhorias futuras ✔️
-Testes de UI
+Componentização
+</br>Testes de UI
 </br>Modularização
