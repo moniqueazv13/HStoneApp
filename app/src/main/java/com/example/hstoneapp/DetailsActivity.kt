@@ -31,7 +31,7 @@ import com.example.hstoneapp.presentation.ui.components.CustomFabButton
 import com.example.hstoneapp.presentation.ui.components.CustomVerticalCard
 import com.example.hstoneapp.presentation.ui.theme.HStoneAppTheme
 import com.example.hstoneapp.presentation.viewmodel.DetailsViewModel
-import org.koin.androidx.compose.get
+import org.koin.androidx.compose.koinViewModel
 
 class DetailsActivity : ComponentActivity() {
 
@@ -50,7 +50,7 @@ class DetailsActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun DetailsScreen(viewModel: DetailsViewModel = get()) {
+    private fun DetailsScreen(viewModel: DetailsViewModel = koinViewModel()) {
         viewModel.setItemName(
             filterName = InfoHelper.itemKeySelected,
             itemName = InfoHelper.itemSelected

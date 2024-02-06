@@ -21,7 +21,6 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Divider
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -64,7 +63,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun MainScreen(viewModel: MainViewModel = get()) {
+private fun MainScreen(viewModel: MainViewModel = koinViewModel()) {
     viewModel.getInfo()
 
     val state = viewModel.uiState.collectAsState()
@@ -117,8 +116,6 @@ private fun MainScreen(viewModel: MainViewModel = get()) {
                 )
             }
         }
-
-        else -> {}
     }
 }
 
