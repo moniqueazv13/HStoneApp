@@ -1,18 +1,11 @@
 package com.example.hstoneapp.domain
 
-class InfoHelper private constructor() {
+object InfoHelper {
     var itemSelected: String = "Mage"
-    var itemKeySelected: String = "Classes"
+        private set
 
-    companion object {
-        private var INSTANCE: InfoHelper? = null
-        fun getInstance(): InfoHelper {
-            if (null == INSTANCE) {
-                INSTANCE = InfoHelper()
-            }
-            return INSTANCE!!
-        }
-    }
+    var itemKeySelected: String = "Classes"
+        private set
 
     fun setItemClicked(itemSelected: String) {
         this.itemSelected = itemSelected

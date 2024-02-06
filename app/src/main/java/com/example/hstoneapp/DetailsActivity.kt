@@ -52,8 +52,8 @@ class DetailsActivity : ComponentActivity() {
     @Composable
     private fun DetailsScreen(viewModel: DetailsViewModel = get()) {
         viewModel.setItemName(
-            filterName = InfoHelper.getInstance().itemKeySelected,
-            itemName = InfoHelper.getInstance().itemSelected
+            filterName = InfoHelper.itemKeySelected,
+            itemName = InfoHelper.itemSelected
         )
 
         val state = viewModel.uiState.collectAsState()
@@ -64,7 +64,7 @@ class DetailsActivity : ComponentActivity() {
 
                 if (cardListRaceResult.isNotEmpty()) {
                     Column {
-                        CustomDetailsHeader(InfoHelper.getInstance().itemKeySelected)
+                        CustomDetailsHeader(InfoHelper.itemKeySelected)
                         CustomLazyVerticalGrid(cardListRaceResult)
                     }
                 } else {

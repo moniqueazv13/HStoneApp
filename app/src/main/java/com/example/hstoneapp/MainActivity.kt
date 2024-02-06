@@ -231,10 +231,6 @@ private fun goToDetailsActivity(
         mContext = context,
         intentClass = DetailsActivity::class.java
     )
-    InfoHelper
-        .getInstance()
-        .setItemClicked(value)
-    InfoHelper
-        .getInstance()
-        .setItemKeyClicked(key)
+    InfoHelper.setItemClicked(value)
+    InfoHelper.setItemKeyClicked(key)
 }
