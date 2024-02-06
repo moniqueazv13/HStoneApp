@@ -9,12 +9,12 @@ import androidx.compose.ui.graphics.painter.Painter
 
 @Composable
 fun CustomVerticalCard(
-    modifierCard: Modifier,
+    modifier: Modifier,
     painterImage: Painter,
     contentDescriptorImage: String
 ) {
     Card(
-        modifier = modifierCard,
+        modifier,
     ) {
         Image(
             modifier = Modifier.align(Alignment.CenterHorizontally),

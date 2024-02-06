@@ -42,7 +42,6 @@ import com.example.hstoneapp.presentation.ui.components.CustomHorizontalCard
 import com.example.hstoneapp.presentation.ui.components.randomColor
 import com.example.hstoneapp.presentation.ui.theme.HStoneAppTheme
 import com.example.hstoneapp.presentation.viewmodel.MainViewModel
-import org.koin.androidx.compose.get
 import org.koin.androidx.compose.koinViewModel
 
 
