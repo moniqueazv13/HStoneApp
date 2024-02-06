@@ -8,30 +8,22 @@ import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.StandardTestDispatcher
-import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
-import org.junit.Before
 import org.junit.Test
-import org.mockito.MockitoAnnotations
 
+@OptIn(ExperimentalCoroutinesApi::class)
 class MainViewModelTest {
 
     private val cardDataUseCase = mockk<CardDataUseCase>()
-    private lateinit var viewModelMocked: MainViewModel
-    private val testDispatcher = TestCoroutineDispatcher()
-
-    @Before
-    fun setup() {
-        viewModelMocked = MainViewModel(cardDataUseCase, testDispatcher)
-    }
 
     @Test
     fun `When MainViewModel call getInfo and has success should return InfoFilterEntity`() = runTest {
-//            val dispatcher = StandardTestDispatcher(testScheduler)
-//            val viewModelMocked = MainViewModel(cardDataUseCase, dispatcher)
+            val dispatcher = StandardTestDispatcher(testScheduler)
+            val viewModelMocked = MainViewModel(cardDataUseCase, dispatcher)
             coEvery { cardDataUseCase.getCardFiltersData() } returns flow { emit(infoFilterEntityMocked) }
             viewModelMocked.getInfo()
             assertThat(viewModelMocked.uiState.value).isEqualTo(UiState.Loading)
