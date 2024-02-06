@@ -19,4 +19,4 @@ Para os testes Unitários, foi utilizado JUnit4 e MockK sendo realizado testes d
 - Testes de UI
 - Modularização
 </br>
-<img src="https://github.com/moniqueazv13/HStoneApp/assets/67206555/7966550a-e484-4a0a-83b8-e56ec2333418" width="300"/> <img src="https://github.com/moniqueazv13/HStoneApp/assets/67206555/00b1cb4a-1ade-480f-954d-c3753c4a6ebe" width="300"/>
+<img src="https://github.com/moniqueazv13/HStoneApp/assets/67206555/7966550a-e484-4a0a-83b8-e56ec2333418" width="300"/> <img src="https://github.com/moniqueazv13/HStoneApp/assets/67206555/34583aad-2d01-406b-a7e4-9d5adc5e2de7" width="300"/>
