@@ -3,6 +3,7 @@ package com.example.hstoneapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -14,7 +15,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -99,7 +99,12 @@ class DetailsActivity : ComponentActivity() {
                             .height(224.dp)
                             .width(189.dp)
                             .padding(8.dp),
-                        rememberAsyncImagePainter(it.img?: getDrawable(R.drawable.placeholder_card)),
+                        rememberAsyncImagePainter(
+                            it.img ?: AppCompatResources.getDrawable(
+                                this@DetailsActivity,
+                                R.drawable.placeholder_card
+                            )
+                        ),
                         stringResource(id = R.string.accessibility_item_image)
                     )
                 }
