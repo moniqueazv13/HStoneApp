@@ -1,6 +1,5 @@
 package com.example.hstoneapp
 
-import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -15,7 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -35,11 +34,11 @@ import com.example.hstoneapp.presentation.viewmodel.DetailsViewModel
 import org.koin.androidx.compose.get
 
 class DetailsActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             HStoneAppTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -57,7 +56,6 @@ class DetailsActivity : ComponentActivity() {
             itemName = InfoHelper.getInstance().itemSelected
         )
 
-        val context = LocalContext.current
         val state = viewModel.uiState.collectAsState()
 
         when (state.value) {
@@ -66,11 +64,11 @@ class DetailsActivity : ComponentActivity() {
 
                 if (cardListRaceResult.isNotEmpty()) {
                     Column {
-                        CustomDetailsHeader(context, InfoHelper.getInstance().itemKeySelected)
+                        CustomDetailsHeader(InfoHelper.getInstance().itemKeySelected)
                         CustomLazyVerticalGrid(cardListRaceResult)
                     }
                 } else {
-                    CustomDetailsHeader(context, stringResource(id = R.string.placeholder_text))
+                    CustomDetailsHeader(stringResource(id = R.string.placeholder_text))
                 }
             }
 
@@ -78,10 +76,12 @@ class DetailsActivity : ComponentActivity() {
                 CircularProgressIndicator(
                     modifier = Modifier
                         .wrapContentSize(align = Alignment.Center)
+                        .padding(top = 90.dp)
                 )
             }
+
             is UiState.Error -> {
-                CustomDetailsHeader(context, stringResource(id = R.string.placeholder_text))
+                CustomDetailsHeader(stringResource(id = R.string.placeholder_text))
             }
         }
     }
@@ -90,30 +90,25 @@ class DetailsActivity : ComponentActivity() {
     private fun CustomLazyVerticalGrid(cardListRaceResult: List<CardByFilterEntity>) {
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
-            Modifier.padding(top = 20.dp)
+            modifier = Modifier.padding(top = 20.dp)
         ) {
             cardListRaceResult.map {
-                it.img?.let {
-                    item {
-                        CustomVerticalCard(
-                            Modifier
-                                .height(224.dp)
-                                .width(189.dp)
-                                .padding(8.dp),
-                            rememberAsyncImagePainter(it),
-                            stringResource(id = R.string.accessibility_item_image)
-                        )
-                    }
+                item {
+                    CustomVerticalCard(
+                        Modifier
+                            .height(224.dp)
+                            .width(189.dp)
+                            .padding(8.dp),
+                        rememberAsyncImagePainter(it.img?: getDrawable(R.drawable.placeholder_card)),
+                        stringResource(id = R.string.accessibility_item_image)
+                    )
                 }
             }
         }
     }
 
     @Composable
-    private fun CustomDetailsHeader(
-        context: Context,
-        headerText: String,
-    ) {
+    private fun CustomDetailsHeader(headerText: String) {
         Box(
             modifier = Modifier
                 .padding(top = 90.dp, start = 24.dp, end = 24.dp),
@@ -121,7 +116,7 @@ class DetailsActivity : ComponentActivity() {
         ) {
 
             CustomFabButton(
-                contextRef = (context as DetailsActivity),
+                contextRef = this@DetailsActivity,
                 modifierFab = Modifier
                     .size(80.dp),
                 backgroundFabColor = colorResource(id = R.color.dark_gunmetal),

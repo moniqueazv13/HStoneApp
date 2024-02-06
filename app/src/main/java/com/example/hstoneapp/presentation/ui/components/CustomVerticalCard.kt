@@ -3,6 +3,7 @@ package com.example.hstoneapp.presentation.ui.components
 import androidx.compose.foundation.Image
 import androidx.compose.material3.Card
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 
@@ -16,6 +17,7 @@ fun CustomVerticalCard(
         modifier = modifierCard,
     ) {
         Image(
+            modifier = Modifier.align(Alignment.CenterHorizontally),
             painter = painterImage,
             contentDescription = contentDescriptorImage
         )
