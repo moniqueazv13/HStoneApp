@@ -1,5 +1,5 @@
 # HStoneApp
-Este repositório consiste na implementação de uma aplicação Android, utilizando a linguagem Kotlin, que consome a API pública do Hearthstone(https://swapi.dev/api/](https://rapidapi.com/omgvamp/api/hearthstone), onde lista 7 categorias, sendo: Classes, Sets, Types, Factions, Qualities, Races e Locales, também é possivel fazer a busca das cartas dos personagens clicando na categoria escolhida.
+Este repositório consiste na implementação de uma aplicação Android, utilizando a linguagem Kotlin, que consome a API pública do Hearthstone(https://rapidapi.com/omgvamp/api/hearthstone), onde lista 7 categorias, sendo: Classes, Sets, Types, Factions, Qualities, Races e Locales, também é possivel fazer a busca das cartas dos personagens clicando na categoria escolhida.
 
 ### Especificações Técnicas ✔️
 - SDK (Versão Mínima): 27
